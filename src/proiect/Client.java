@@ -2,10 +2,10 @@ package proiect;
 
 public class Client {
     private final int id;
-    private String last_name;
-    private String first_name;
-    private String address;
-    private String phone;
+    private final String last_name;
+    private final String first_name;
+    private final String address;
+    private final String phone;
       
     public Client(int id, String last_name, String first_name, String address, String phone) {
         this.id = id;

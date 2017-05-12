@@ -2,15 +2,16 @@ package proiect;
 
 import java.sql.Date;
 
+// a client will have only one type of index 
 public class Index {
     private final int id;
-    private int id_client;
-    private Date date;
-    private Date for_month;
-    private int index_type; // 1 for simple index, 2 for composite index
-    private double day_index; // if index is simple only day_index is not null
-    private double night_index;
-    private double morning_index;
+    private final int id_client;
+    private final Date date;
+    private final Date for_month;
+    private final int index_type; // 1 for simple index, 2 for composite index
+    private final double day_index; // if index is simple only day_index is not null
+    private final double night_index;
+    private final double morning_index;
       
     public Index(int id, int id_client, Date date, Date for_month, int index_type, double day_index, double night_index, double morning_index) {
         this.id = id;

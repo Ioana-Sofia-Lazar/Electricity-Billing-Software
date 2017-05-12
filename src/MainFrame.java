@@ -4,6 +4,16 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import proiect.Client;
 import proiect.Index;
+import java.io.FileOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
+
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
+import proiect.Invoice;
 
 public class MainFrame extends javax.swing.JFrame {
     
@@ -1099,30 +1109,32 @@ public class MainFrame extends javax.swing.JFrame {
     private void loadPrices() {
         String query = "SELECT * FROM prices;";
         
-        Statement st;
-        ResultSet rs;
-        
-        try {
-            st = DBConnection.createStatement();
-            rs = st.executeQuery(query);
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            
+            ResultSet rs = st.executeQuery();
+            
             // we move to the first period
-            rs.next(); 
-            periodName1.setText(rs.getString("period_name"));
-            startDate1.setMonth(rs.getInt("start_date"));
-            endDate1.setMonth(rs.getInt("end_date"));
-            simplePrice1.setValue(rs.getDouble("simple_price"));
-            dayPrice1.setValue(rs.getDouble("day_price"));
-            nightPrice1.setValue(rs.getDouble("night_price"));
-            morningPrice1.setValue(rs.getDouble("morning_price"));
+            if(rs.next()) {
+                periodName1.setText(rs.getString("period_name"));
+                startDate1.setMonth(rs.getInt("start_date"));
+                endDate1.setMonth(rs.getInt("end_date"));
+                simplePrice1.setValue(rs.getDouble("simple_price"));
+                dayPrice1.setValue(rs.getDouble("day_price"));
+                nightPrice1.setValue(rs.getDouble("night_price"));
+                morningPrice1.setValue(rs.getDouble("morning_price"));
+            } 
+            
             // second period
-            rs.next();
-            periodName2.setText(rs.getString("period_name"));
-            startDate2.setMonth(rs.getInt("start_date"));
-            endDate2.setMonth(rs.getInt("end_date"));
-            simplePrice2.setValue(rs.getDouble("simple_price"));
-            dayPrice2.setValue(rs.getDouble("day_price"));
-            nightPrice2.setValue(rs.getDouble("night_price"));
-            morningPrice2.setValue(rs.getDouble("morning_price"));
+            if(rs.next()){
+                periodName2.setText(rs.getString("period_name"));
+                startDate2.setMonth(rs.getInt("start_date"));
+                endDate2.setMonth(rs.getInt("end_date"));
+                simplePrice2.setValue(rs.getDouble("simple_price"));
+                dayPrice2.setValue(rs.getDouble("day_price"));
+                nightPrice2.setValue(rs.getDouble("night_price"));
+                morningPrice2.setValue(rs.getDouble("morning_price"));
+            }
+            
         }
         catch(Exception e) {
             System.out.println("error at getting prices list");
@@ -1134,14 +1146,15 @@ public class MainFrame extends javax.swing.JFrame {
     private ArrayList<Client> getClientsList(String search) {
         ArrayList<Client> clientsList = new ArrayList<>();
         
-        String query = "SELECT * FROM client WHERE first_name LIKE '%" + search + "%' or last_name LIKE '%" + search + "%' or address LIKE '%" + search + "%';";
-        Statement st;
-        ResultSet rs;
+        String query = "SELECT * FROM client WHERE first_name LIKE ? or last_name LIKE ? or address LIKE ?;";
         
-        try {
-            st = DBConnection.createStatement();
-            rs = st.executeQuery(query);
-            Client client = null;
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            st.setString(1, "%" + search + "%");
+            st.setString(2, "%" + search + "%");
+            st.setString(3, "%" + search + "%");
+            ResultSet rs = st.executeQuery();
+
+            Client client;
             while(rs.next()) {
                 client = new Client(rs.getInt("id_client"), rs.getString("last_name"), rs.getString("first_name"), rs.getString("address"), rs.getString("phone_number"));
                 clientsList.add(client);
@@ -1179,14 +1192,11 @@ public class MainFrame extends javax.swing.JFrame {
     private ArrayList<Index> getIndexesList(int id) {
         ArrayList<Index> indexesList = new ArrayList<>();
         
-        String query = "SELECT * FROM idx WHERE id_client = " + id + " ORDER BY for_month;";
-        Statement st;
-        ResultSet rs;
-        
-        try {
-            st = DBConnection.createStatement();
-            rs = st.executeQuery(query);
-            Index index = null;
+        String query = "SELECT * FROM idx WHERE id_client = ? ORDER BY for_month;";
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            Index index;
             while(rs.next()) {
                 index = new Index(rs.getInt("id_index"), rs.getInt("id_client"), rs.getDate("date"), rs.getDate("for_month"), rs.getInt("index_type"), rs.getDouble("day_index"), rs.getDouble("night_index"), rs.getDouble("morning_index"));
                 indexesList.add(index);
@@ -1222,31 +1232,10 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
-    private void executeSQLQuery(String query, String message) {
-        Statement st;
-        
-        try {
-            st = DBConnection.createStatement();
-            if((st.executeUpdate(query)) == 1) {
-                // when we add/update a client we load the database again with the changes
-                modelC.setRowCount(0);
-                showClientsInTable("");
-                
-                JOptionPane.showMessageDialog(null, "Data " + message + " successfully");          
-            }              
-            else
-                JOptionPane.showMessageDialog(null, "Data not " + message);
-        }
-        catch(Exception e) {
-            System.out.println("error at " + message);
-            e.printStackTrace();
-        }
-    }
-    
     public Connection getConnection() {
         Connection con;
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/facturare_contoare?useSSL=false", "root", "Andibun337");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/facturare_contoare?useSSL=false", "root", "root");
             if(con != null)
                 System.out.println("connected to db successfully");
             return con;
@@ -1296,18 +1285,52 @@ public class MainFrame extends javax.swing.JFrame {
         String addr = addressTextField.getText();
         String phone = phoneTextField.getText();
         
-        String query = "INSERT INTO client (first_name, last_name, address, phone_number) VALUES ('" + fname + "','" + lname + "','" + addr + "','" + phone + "');" ;
+        String query = "INSERT INTO client (first_name, last_name, address, phone_number) VALUES (?, ?, ?, ?);" ;
         
-        executeSQLQuery(query, "added");
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            st.setString(1, fname);
+            st.setString(2, lname);
+            st.setString(3, addr);
+            st.setString(4, phone);
+            
+            if((st.executeUpdate()) == 1) {
+                // when we add/update a client we load the database again with the changes
+                modelC.setRowCount(0);
+                showClientsInTable("");
+                
+                JOptionPane.showMessageDialog(null, "Data added successfully");          
+            }              
+            else
+                JOptionPane.showMessageDialog(null, "Data not added");
+        }
+        catch(Exception e) {
+            System.out.println("error at adding data");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_addClientButtonActionPerformed
     
     private void deleteClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteClientButtonActionPerformed
         int row = clientsTable.getSelectedRow();
         int id = (int)modelC.getValueAt(row, 0);
         
-        String query = "DELETE FROM client WHERE id_client = " + id ;
+        String query = "DELETE FROM client WHERE id_client = ? ";
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            st.setInt(1, id);
         
-        executeSQLQuery(query, "deleted");             
+            if((st.executeUpdate()) == 1) {
+                // when we add/update a client we load the database again with the changes
+                modelC.setRowCount(0);
+                showClientsInTable("");
+                
+                JOptionPane.showMessageDialog(null, "Data deleted successfully");          
+            }              
+            else
+                JOptionPane.showMessageDialog(null, "Data not deleted");
+        }
+        catch(Exception e) {
+            System.out.println("error at deleting data");
+            e.printStackTrace();
+        }             
     }//GEN-LAST:event_deleteClientButtonActionPerformed
 
     private void clientsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientsTableMouseClicked
@@ -1328,9 +1351,29 @@ public class MainFrame extends javax.swing.JFrame {
         int row = clientsTable.getSelectedRow();
         int id = (int)modelC.getValueAt(row, 0);
         
-        String query = "UPDATE client SET first_name = '" + fname + "', last_name = '" + lname +"', address = '" + addr + "', phone_number = '" + phone + "' WHERE id_client = " + id ;
+        String query = "UPDATE client SET first_name = ?, last_name = ? address = ?, phone_number = ? WHERE id_client = ? ";
         
-        executeSQLQuery(query, "updated"); 
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            st.setString(1, fname);
+            st.setString(2, lname);
+            st.setString(3, addr);
+            st.setString(4, phone);
+            st.setInt(5, id);
+            
+            if((st.executeUpdate()) == 1) {
+                // when we add/update a client we load the database again with the changes
+                modelC.setRowCount(0);
+                showClientsInTable("");
+                
+                JOptionPane.showMessageDialog(null, "Data updated successfully");          
+            }              
+            else
+                JOptionPane.showMessageDialog(null, "Data not updated");
+        }
+        catch(Exception e) {
+            System.out.println("error at updating data");
+            e.printStackTrace();
+        } 
     }//GEN-LAST:event_updateClientButtonActionPerformed
 
     private void simpleIndexRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpleIndexRadioActionPerformed
@@ -1379,31 +1422,9 @@ public class MainFrame extends javax.swing.JFrame {
         morningIndexField.setEnabled(true);       
     }//GEN-LAST:event_compositeIndexRadioActionPerformed
 
-    // queries for idx table
-    private void executeSQLQuery2(String query, int id) {
-        Statement st;
-        
-        try {
-            st = DBConnection.createStatement();
-            if((st.executeUpdate(query)) == 1) {
-                // when we add/update an index we load the database again with the changes
-                modelI.setRowCount(0);
-                showIndexesInTable(id);
-                
-                JOptionPane.showMessageDialog(null, "Data added successfully");          
-            }              
-            else
-                JOptionPane.showMessageDialog(null, "Data not added");
-        }
-        catch(Exception e) {
-            System.out.println("error at adding index");
-            e.printStackTrace();
-        }
-    }
-    
     private String getMonthFormat(String m) {
         if(m.length() == 1) 
-            return "0" +  m;
+            return "0" +  m; // months are indexed from 0 in the month picker
         return m;
     } 
     
@@ -1416,7 +1437,7 @@ public class MainFrame extends javax.swing.JFrame {
         else { // add the new index in the database
             int id = Integer.parseInt(enterClientIdField.getText());
             String dt = handoverDateField.getText();
-            String for_m_y = getMonthFormat(((Integer)forMonthField.getMonth()).toString()) + "-" + ((Integer)forYearField.getYear()).toString();System.out.println(for_m_y);
+            String for_m_y = getMonthFormat(((Integer)forMonthField.getMonth()).toString()) + "-" + ((Integer)forYearField.getYear()).toString();
             int index_type;
             double dayIndex;
             double nightIndex;
@@ -1434,11 +1455,31 @@ public class MainFrame extends javax.swing.JFrame {
                 morningIndex = ((Number)morningIndexField.getValue()).doubleValue();
             }
 
-            String query = "INSERT INTO idx (id_client, date, for_month, index_type, day_index, night_index, morning_index) VALUES (" 
-                    + id + ", STR_TO_DATE('" + dt + "', '%d-%m-%Y'), STR_TO_DATE('" + for_m_y + "', '%m-%Y'), " + index_type + 
-                    "," + dayIndex + "," + nightIndex + "," + morningIndex + ");" ;
+            String query = "INSERT INTO idx (id_client, date, for_month, index_type, day_index, night_index, morning_index) VALUES (?, STR_TO_DATE(?, '%d-%m-%Y'), STR_TO_DATE(?, '%m-%Y'), ?, ?, ?, ?);";
             
-            executeSQLQuery2(query, id);
+            try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+                st.setInt(1, id);
+                st.setString(2, dt);
+                st.setString(3, for_m_y);
+                st.setInt(4, index_type);
+                st.setDouble(5, dayIndex);
+                st.setDouble(6, nightIndex);
+                st.setDouble(7, morningIndex);
+                
+                if((st.executeUpdate()) == 1) {
+                    // when we add/update an index we load the database again with the changes
+                    modelI.setRowCount(0);
+                    showIndexesInTable(id);
+
+                    JOptionPane.showMessageDialog(null, "Data added successfully");          
+                }              
+                else
+                    JOptionPane.showMessageDialog(null, "Data not added");
+            }
+            catch(Exception e) {
+                System.out.println("error at adding index");
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_indexSaveButtonActionPerformed
 
@@ -1456,38 +1497,300 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // we save the new price in the database
-        String query1, query2;
-        query1 = "UPDATE prices SET period_name = '" + periodName1.getText() + 
-            "', start_date = STR_TO_DATE('" + startDate1.getMonth()+ "', '%m'), end_date = STR_TO_DATE('"
-            + endDate1.getMonth()+ "', '%m'), simple_price = " + simplePrice1.getValue() + 
-            ", day_price = " + dayPrice1.getValue() + ", night_price = " + nightPrice1.getValue() +
-            ", morning_price = " + morningPrice1.getValue() + " WHERE id_price = 1";
+        // we save the new prices in the database
+        int ok = 0;
         
-        query2 = "UPDATE prices SET period_name = '" + periodName2.getText() + 
-            "', start_date = STR_TO_DATE('" + startDate2.getMonth()+ "', '%m'), end_date = STR_TO_DATE('"
-            + endDate2.getMonth()+ "', '%m'), simple_price = " + simplePrice2.getValue() + 
-            ", day_price = " + dayPrice2.getValue() + ", night_price = " + nightPrice2.getValue() +
-            ", morning_price = " + morningPrice2.getValue() + " WHERE id_price = 2";
-        
-        Statement st;
-        
-        try {
-            st = DBConnection.createStatement();
-            if((st.executeUpdate(query1)) == 1 && (st.executeUpdate(query2)) == 1) {
-                JOptionPane.showMessageDialog(null, "Price updated successfully");          
-            }              
-            else
-                JOptionPane.showMessageDialog(null, "Prices not updated");
+        String query1 = "UPDATE prices SET period_name = ?, start_date = ?, end_date = ?," + 
+                " simple_price = ?, day_price = ?, night_price = ?, morning_price = ? WHERE id_price = 1";
+       
+        try(PreparedStatement st = DBConnection.prepareStatement(query1);) {
+            st.setString(1, periodName1.getText());
+            st.setInt(2, startDate1.getMonth());
+            st.setInt(3, endDate1.getMonth());
+            st.setDouble(4, (Double)(simplePrice1.getValue()));
+            st.setDouble(5, (Double)(dayPrice1.getValue()));
+            st.setDouble(6, (Double)(nightPrice1.getValue()));
+            st.setDouble(7, (Double)(morningPrice1.getValue()));
+            
+            if((st.executeUpdate()) == 1) {
+                ok++;
+            }                          
         }
         catch(Exception e) {
             System.out.println("error at updating prices");
             e.printStackTrace();
         }
+        
+        String query2 = "UPDATE prices SET period_name = ?, start_date = ?, end_date = ?," + 
+                " simple_price = ?, day_price = ?, night_price = ?, morning_price = ? WHERE id_price = 2";
+        
+        try(PreparedStatement st = DBConnection.prepareStatement(query2);) {
+            st.setString(1, periodName2.getText());
+            st.setInt(2, startDate2.getMonth());
+            st.setInt(3, endDate2.getMonth());
+            st.setDouble(4, (Double)(simplePrice2.getValue()));
+            st.setDouble(5, (Double)(dayPrice2.getValue()));
+            st.setDouble(6, (Double)(nightPrice2.getValue()));
+            st.setDouble(7, (Double)(morningPrice2.getValue()));
+            
+            if((st.executeUpdate()) == 1) {
+                ok++;
+            }                          
+        }
+        catch(Exception e) {
+            System.out.println("error at updating prices");
+            e.printStackTrace();
+        }
+        
+        if(ok == 2) // both updates were successfull
+            JOptionPane.showMessageDialog(null, "Price updated successfully"); 
+        else
+            JOptionPane.showMessageDialog(null, "Prices not updated");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    // verifies if input is an existing id in the clients table
+    // returns id if succes, -1 if failure
+    private int verifyValidId(String inp) {
+        int id = 0;
+        if(inp.compareTo("") != 0) 
+            id = Integer.parseInt(inp);
+        String query = "SELECT * FROM client WHERE id_client = ?";
+               
+        try (PreparedStatement st = DBConnection.prepareStatement(query);){
+            st.setInt(1, id);
+            
+            ResultSet rs = st.executeQuery();
+            int count = 0;
+            while(rs.next()) 
+                count++;
+            if(count == 0) { // if there is no client with the given id
+                JOptionPane.showMessageDialog(null, "Invalid ID");
+                return -1;
+            }               
+        }
+        catch(Exception e) {
+            System.out.println("id not ok");
+            e.printStackTrace();
+        }
+        return id; // valid ID
+    }
+    
+    // verifies if there already is an invoice for the clied with id id_c for month for_m_y
+    // if so, returns invoice id, else -1
+    private int existsInvoiceInDb(int id_c, String for_m_y) {
+        String query = "SELECT * FROM invoice WHERE id_client = ? and STR_TO_DATE(?, '%m-%Y') = for_month;";
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            st.setInt(1, id_c);
+            st.setString(2, for_m_y);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()) { // there already is an invoice in the database for this client and for this month
+                return rs.getInt("id_invoice");
+            }    
+        }
+        catch(Exception e) {
+            System.out.println("error at getting indexes list");
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    
+    // calculates value of invoice for client with id for month m and year y
+    private Invoice calculateInvoiceVal(int id, int m, int y) {
+        Invoice inv = null;
+        
+        // we will also need last index for the previous month
+        String for_m_y = getMonthFormat(((Integer)(m + 1)).toString()) + "-" + ((Integer)y).toString();
+        if(m == 1) {
+            m = 12;
+            y--;
+        }
+        else m--;
+        String prevfor_m_y = getMonthFormat(((Integer)(m + 1)).toString()) + "-" + ((Integer)y).toString();
+        
+        Index idx = getLastIndexForMonth(for_m_y, id);
+        Index previdx = getLastIndexForMonth(prevfor_m_y, id);
+        // if we have no index for the previous month we are about to add the first index for this client
+        if(previdx == null)
+            previdx = new Index(0, 0, null, null, 0, 0, 0, 0); 
+        if(idx == null) {
+            JOptionPane.showMessageDialog(null, "No existing Index for selected month.");
+            return null;
+        }
+        double val, pDay, pNight = 0, pMorning = 0;
+        System.out.println("idx: " + idx.getDay_index() + "  prev: " + previdx.getDay_index());
+        
+        // we get the price for the specific type of index and period
+        if (m >= startDate1.getMonth() + 1 && m <= endDate1.getMonth() + 1) {
+            if(idx.getIndex_type() == 1) {// first period and simple index
+                pDay = (Double)simplePrice1.getValue();
+            }
+            else {// first period and composite index
+                pDay = (Double)dayPrice1.getValue();
+                pNight = (Double)nightPrice1.getValue();
+                pMorning = (Double)morningPrice1.getValue();
+            }
+        }
+        else {
+            if(idx.getIndex_type() == 1) {// second period and simple index
+                pDay = (Double)simplePrice2.getValue();
+            }
+            else {// second period and composite index
+                pDay = (Double)dayPrice2.getValue();
+                pNight = (Double)nightPrice2.getValue();
+                pMorning = (Double)morningPrice2.getValue();
+            }
+        }
+                
+        if(idx.getIndex_type() == 1) { // simple index
+            val = idx.getDay_index() - previdx.getDay_index();
+            val = val * pDay;
+        }
+        else {
+            val = (idx.getDay_index() - previdx.getDay_index()) * pDay 
+                    + (idx.getNight_index()- previdx.getNight_index()) * pNight 
+                    + (idx.getMorning_index()- previdx.getMorning_index()) * pMorning;           
+        }
+        
+        if(existsInvoiceInDb(id, for_m_y) == -1) {
+            // add invoice to the DB
+            String query = "INSERT INTO invoice(id_client, value, date, for_month, day_cons, night_cons, morning_cons)" + 
+                    "VALUES(?, ?, STR_TO_DATE(CURDATE(), '%Y-%m-%d'), STR_TO_DATE(?, '%m-%Y'), ?, ?, ?)" ;        
+            try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+                st.setInt(1, id);
+                st.setDouble(2, val);
+                st.setString(3, for_m_y);
+                st.setDouble(4, idx.getDay_index() - previdx.getDay_index());
+                st.setDouble(5, idx.getNight_index()- previdx.getNight_index());
+                st.setDouble(6, idx.getMorning_index()- previdx.getMorning_index());
+
+                if((st.executeUpdate()) == 1) {
+                    System.out.println("Invoice added to DB successfully.");          
+                }              
+                else
+                    System.out.println("Invoice not added to DB.");
+            }
+            catch(Exception e) {
+                System.out.println("error at adding data");
+                e.printStackTrace();
+            }
+        }        
+        
+        // create coresponding Invoice object 
+        String query = "SELECT i.*, c.* FROM invoice i JOIN client c ON (c.id_client = i.id_client);";
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            ResultSet rs = st.executeQuery();
+            Index index;
+            if(rs.next()) {
+                inv = new Invoice(rs.getInt("i.id_invoice"), rs.getInt("i.id_client"), rs.getString("c.first_name") + " " + rs.getString("c.last_name"), 
+                    rs.getString("c.address"), rs.getDate("i.date"), rs.getDate("i.for_month"), rs.getDouble("i.value"), 
+                    rs.getDouble("i.day_cons"), rs.getDouble("i.night_cons"), rs.getDouble("i.morning_cons"));
+            } 
+            else {
+                System.out.println("error at getting invoice details");
+            }
+        }
+        catch(Exception e) {
+            System.out.println("error at getting invoice details");
+            e.printStackTrace();
+        }
+        
+        return inv;
+    }
+    
+    // creates invoice for client with id for month m and year y
+    private void createInvoice(int id, int m, int y) {
+        Invoice inv = calculateInvoiceVal(id, m, y);        
+        
+        if(inv == null) {
+            JOptionPane.showMessageDialog(null, "Error at creating invoice.");
+            return;
+        }
+        System.out.println("invoice val " + inv.getValue());
+        
+        String FILE = "Invoice_" + (m+1) + "_" + y + ".pdf";
+        XWPFDocument doc = new XWPFDocument();
+        
+        XWPFParagraph para = doc.createParagraph();
+        XWPFRun run = para.createRun();
+        para.setAlignment(ParagraphAlignment.CENTER);   
+        run.setBold(true);
+        run.setText("Electricity Invoice");
+        run.addBreak(); run.addBreak();
+        
+        XWPFParagraph para2 = doc.createParagraph();
+        XWPFRun run2 = para2.createRun();
+        para2.setAlignment(ParagraphAlignment.CENTER);        
+        run2.setText("Invoice number: " + inv.getId());
+        run2.addBreak();
+        run2.setText("Client number: " + inv.getId_client());
+        run2.addBreak();
+        run2.setText("Client name: " + inv.getClientName());
+        run2.addBreak();
+        run2.setText("Client address: " + inv.getClientAddr());
+        run2.addBreak();
+        run2.setText("Invoice date: " + inv.getDate());
+        run2.addBreak();
+        run2.setText("For month: " + inv.getFor_month());
+        run2.addBreak();
+        run2.setText("Day consumption: " + inv.getDayCons());
+        run2.addBreak();
+        run2.setText("Night consumption: " + inv.getNightCons());
+        run2.addBreak();
+        run2.setText("Morning consumption: " + inv.getMorningCons());
+        run2.addBreak(); run2.addBreak();
+        run2.setText("Total value: " + inv.getValue());
+        
+        try (FileOutputStream output = new FileOutputStream(FILE)) {
+                doc.write(output);
+        } catch (Exception e) {
+            System.out.println("error at creating invoice");
+            e.printStackTrace();
+        }
+    }
+    
+    // we return the last index for the desired month (for calculating bill)
+    // we suppose we have indexes for all months and if we don't it means we are about to add the first one
+    private Index getLastIndexForMonth(String for_m_y, int id) {
+        System.out.println("getting index for " + for_m_y);
+        String query = "SELECT *, max(date) maxi FROM idx where for_month = str_to_date(?, '%m-%Y') and id_client = ?;";
+        Index index = null;
+        
+        try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            st.setString(1, for_m_y);
+            st.setInt(2, id);
+            
+            ResultSet rs = st.executeQuery();
+            int count = 0;
+            while(rs.next()) {
+                
+                if(rs.getDate("maxi") != null) {
+                    count++;
+                    index = new Index(rs.getInt("id_index"), rs.getInt("id_client"), 
+                        rs.getDate("date"), rs.getDate("for_month"), rs.getInt("index_type"), 
+                        rs.getDouble("day_index"), rs.getDouble("night_index"), rs.getDouble("morning_index")); 
+                }
+            }
+            
+            if(index == null) { // if there is no index for the client for that month
+                //JOptionPane.showMessageDialog(null, "No existing Index for the specified month.");
+                return null;
+            }  
+        }
+        catch(Exception e) {
+            System.out.println("id not ok");
+            e.printStackTrace();
+        }
+        return index;
+    }
+    
     private void invoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoiceButtonActionPerformed
-        // TODO add your handling code here:
+        String inpId = invoiceClientIdField.getText();
+        int for_month = invoiceForMonthField.getMonth(), for_year = invoiceForYearField.getYear(), id;
+        
+        // verify that the id introduced is valid and that we have index for that month
+        if((id = verifyValidId(inpId)) != -1) 
+            createInvoice(id, for_month, for_year);
+                
     }//GEN-LAST:event_invoiceButtonActionPerformed
     
     public static void main(String args[]) {
@@ -1516,6 +1819,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MainFrame().setVisible(true);
             }
