@@ -5,9 +5,6 @@ import javax.swing.table.DefaultTableModel;
 import proiect.Client;
 import proiect.Index;
 import java.io.FileOutputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -43,27 +40,27 @@ public class MainFrame extends javax.swing.JFrame {
         billButton = new javax.swing.JButton();
         ContentPanel = new javax.swing.JPanel();
         ClientsPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         clientsTable = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        firstNameTextField = new javax.swing.JTextField();
-        addressTextField = new javax.swing.JTextField();
-        phoneTextField = new javax.swing.JTextField();
-        deleteClientButton = new javax.swing.JButton();
-        updateClientButton = new javax.swing.JButton();
-        addClientButton = new javax.swing.JButton();
-        lastNameTextField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         searchTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        firstNameTextField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        lastNameTextField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        addressTextField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        phoneTextField = new javax.swing.JTextField();
+        addClientButton = new javax.swing.JButton();
+        updateClientButton = new javax.swing.JButton();
+        deleteClientButton = new javax.swing.JButton();
         addIndexForClientButton = new javax.swing.JButton();
         PricesPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -89,7 +86,6 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         morningPrice2 = new javax.swing.JFormattedTextField();
-        jLabel35 = new javax.swing.JLabel();
         nightPrice2 = new javax.swing.JFormattedTextField();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -104,31 +100,33 @@ public class MainFrame extends javax.swing.JFrame {
         startDate2 = new com.toedter.calendar.JMonthChooser();
         endDate2 = new com.toedter.calendar.JMonthChooser();
         AddIndexPanel = new javax.swing.JPanel();
-        simpleIndexRadio = new javax.swing.JRadioButton();
-        compositeIndexRadio = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         enterClientIdField = new javax.swing.JTextField();
         okSelectClientButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         indexesTable = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        handoverDateField = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
         forMonthField = new com.toedter.calendar.JMonthChooser();
         forYearField = new com.toedter.calendar.JYearChooser();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        simpleIndexRadio = new javax.swing.JRadioButton();
+        simpleIndexField = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
+        compositeIndexRadio = new javax.swing.JRadioButton();
         jLabel11 = new javax.swing.JLabel();
+        dayIndexField = new javax.swing.JFormattedTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        indexSaveButton = new javax.swing.JButton();
-        dayIndexField = new javax.swing.JFormattedTextField();
-        simpleIndexField = new javax.swing.JFormattedTextField();
-        morningIndexField = new javax.swing.JFormattedTextField();
         nightIndexField = new javax.swing.JFormattedTextField();
-        handoverDateField = new javax.swing.JFormattedTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        morningIndexField = new javax.swing.JFormattedTextField();
+        jLabel15 = new javax.swing.JLabel();
+        indexSaveButton = new javax.swing.JButton();
         BillPanel = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         invoiceClientIdField = new javax.swing.JTextField();
@@ -139,9 +137,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
-        setMaximumSize(new java.awt.Dimension(2000, 1600));
         setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1200, 650));
+        setPreferredSize(new java.awt.Dimension(1200, 690));
 
         MenuPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -206,21 +203,6 @@ public class MainFrame extends javax.swing.JFrame {
         ClientsPanel.setPreferredSize(new java.awt.Dimension(894, 500));
         ClientsPanel.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        ClientsPanel.add(jPanel1, gridBagConstraints);
-
         clientsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -250,168 +232,26 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 499;
-        gridBagConstraints.ipady = 400;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.ipady = 200;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         ClientsPanel.add(jScrollPane1, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("First name:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(67, 79, 0, 0);
-        ClientsPanel.add(jLabel2, gridBagConstraints);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Address:");
-        jLabel3.setMaximumSize(new java.awt.Dimension(68, 17));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(22, 94, 0, 0);
-        ClientsPanel.add(jLabel3, gridBagConstraints);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Phone number:");
-        jLabel4.setMaximumSize(new java.awt.Dimension(68, 17));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(22, 51, 0, 0);
-        ClientsPanel.add(jLabel4, gridBagConstraints);
-
-        firstNameTextField.setMaximumSize(new java.awt.Dimension(68, 17));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 112;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.insets = new java.awt.Insets(63, 18, 0, 0);
-        ClientsPanel.add(firstNameTextField, gridBagConstraints);
-
-        addressTextField.setMaximumSize(new java.awt.Dimension(68, 17));
-        addressTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressTextFieldActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 112;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
-        ClientsPanel.add(addressTextField, gridBagConstraints);
-
-        phoneTextField.setMaximumSize(new java.awt.Dimension(68, 17));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 112;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
-        ClientsPanel.add(phoneTextField, gridBagConstraints);
-
-        deleteClientButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        deleteClientButton.setText("Delete");
-        deleteClientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        deleteClientButton.setMaximumSize(new java.awt.Dimension(68, 17));
-        deleteClientButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteClientButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.ipadx = 16;
-        gridBagConstraints.ipady = 7;
-        gridBagConstraints.insets = new java.awt.Insets(41, 2, 0, 41);
-        ClientsPanel.add(deleteClientButton, gridBagConstraints);
-        deleteClientButton.getAccessibleContext().setAccessibleDescription("30");
-
-        updateClientButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        updateClientButton.setText("Update");
-        updateClientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        updateClientButton.setMaximumSize(new java.awt.Dimension(68, 17));
-        updateClientButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateClientButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 12;
-        gridBagConstraints.ipady = 7;
-        gridBagConstraints.insets = new java.awt.Insets(41, 9, 0, 0);
-        ClientsPanel.add(updateClientButton, gridBagConstraints);
-        updateClientButton.getAccessibleContext().setAccessibleDescription("30");
-
-        addClientButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        addClientButton.setText("Add");
-        addClientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        addClientButton.setMaximumSize(new java.awt.Dimension(68, 17));
-        addClientButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addClientButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.ipadx = 30;
-        gridBagConstraints.ipady = 7;
-        gridBagConstraints.insets = new java.awt.Insets(41, 51, 0, 0);
-        ClientsPanel.add(addClientButton, gridBagConstraints);
-        addClientButton.getAccessibleContext().setAccessibleDescription("30");
-
-        lastNameTextField.setMaximumSize(new java.awt.Dimension(68, 17));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 112;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
-        ClientsPanel.add(lastNameTextField, gridBagConstraints);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Last name:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(22, 79, 0, 0);
-        ClientsPanel.add(jLabel5, gridBagConstraints);
+        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel4.setLayout(new java.awt.GridBagLayout());
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Search:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(24, 78, 0, 0);
-        ClientsPanel.add(jLabel6, gridBagConstraints);
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+        jPanel4.add(jLabel6, gridBagConstraints);
 
         searchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -420,13 +260,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 253;
         gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 4, 171, 0);
-        ClientsPanel.add(searchTextField, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 20);
+        jPanel4.add(searchTextField, gridBagConstraints);
 
         jButton1.setIcon(new javax.swing.ImageIcon("D:\\FMI\\AN2\\Sem2\\PAO\\Proiect\\Design\\Cancel_32px.png")); // NOI18N
         jButton1.setToolTipText("");
@@ -442,13 +280,169 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = -4;
         gridBagConstraints.ipady = -9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 6, 171, 0);
-        ClientsPanel.add(jButton1, gridBagConstraints);
+        jPanel4.add(jButton1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 30, 0);
+        ClientsPanel.add(jPanel4, gridBagConstraints);
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("First name:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 0, 0);
+        jPanel2.add(jLabel2, gridBagConstraints);
+
+        firstNameTextField.setMaximumSize(new java.awt.Dimension(68, 17));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 112;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        jPanel2.add(firstNameTextField, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Last name:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        jPanel2.add(jLabel5, gridBagConstraints);
+
+        lastNameTextField.setMaximumSize(new java.awt.Dimension(68, 17));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 112;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
+        jPanel2.add(lastNameTextField, gridBagConstraints);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Address:");
+        jLabel3.setMaximumSize(new java.awt.Dimension(68, 17));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        jPanel2.add(jLabel3, gridBagConstraints);
+
+        addressTextField.setMaximumSize(new java.awt.Dimension(68, 17));
+        addressTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressTextFieldActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 112;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
+        jPanel2.add(addressTextField, gridBagConstraints);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Phone number:");
+        jLabel4.setMaximumSize(new java.awt.Dimension(68, 17));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        jPanel2.add(jLabel4, gridBagConstraints);
+
+        phoneTextField.setMaximumSize(new java.awt.Dimension(68, 17));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 112;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
+        jPanel2.add(phoneTextField, gridBagConstraints);
+
+        addClientButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        addClientButton.setText("Add");
+        addClientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addClientButton.setMaximumSize(new java.awt.Dimension(68, 17));
+        addClientButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addClientButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 0, 0, 5);
+        jPanel2.add(addClientButton, gridBagConstraints);
+        addClientButton.getAccessibleContext().setAccessibleDescription("30");
+
+        updateClientButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        updateClientButton.setText("Update");
+        updateClientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updateClientButton.setMaximumSize(new java.awt.Dimension(68, 17));
+        updateClientButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateClientButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 12;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.insets = new java.awt.Insets(41, 0, 0, 5);
+        jPanel2.add(updateClientButton, gridBagConstraints);
+        updateClientButton.getAccessibleContext().setAccessibleDescription("30");
+
+        deleteClientButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        deleteClientButton.setText("Delete");
+        deleteClientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteClientButton.setMaximumSize(new java.awt.Dimension(68, 17));
+        deleteClientButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteClientButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 16;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 2, 0, 0);
+        jPanel2.add(deleteClientButton, gridBagConstraints);
+        deleteClientButton.getAccessibleContext().setAccessibleDescription("30");
 
         addIndexForClientButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         addIndexForClientButton.setText("Add Index");
@@ -461,54 +455,156 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.ipady = 9;
-        gridBagConstraints.insets = new java.awt.Insets(38, 9, 0, 0);
-        ClientsPanel.add(addIndexForClientButton, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(38, 0, 0, 0);
+        jPanel2.add(addIndexForClientButton, gridBagConstraints);
         addIndexForClientButton.getAccessibleContext().setAccessibleDescription("30");
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
+        ClientsPanel.add(jPanel2, gridBagConstraints);
 
         ContentPanel.add(ClientsPanel, "card5");
 
-        PricesPanel.setBackground(new java.awt.Color(255, 204, 204));
+        PricesPanel.setBackground(new java.awt.Color(255, 204, 255));
+        PricesPanel.setMinimumSize(new java.awt.Dimension(0, 0));
+        PricesPanel.setPreferredSize(new java.awt.Dimension(800, 500));
+        PricesPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel17.setText("From:");
-
-        jLabel18.setText("-");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        PricesPanel.add(jLabel17, gridBagConstraints);
 
         jLabel19.setText("To:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        PricesPanel.add(jLabel19, gridBagConstraints);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel20.setText("Simple index:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        PricesPanel.add(jLabel20, gridBagConstraints);
 
         jLabel21.setText("/kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 4, 0, 0);
+        PricesPanel.add(jLabel21, gridBagConstraints);
 
         simplePrice1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 69;
+        PricesPanel.add(simplePrice1, gridBagConstraints);
 
         jLabel22.setText("Day:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        PricesPanel.add(jLabel22, gridBagConstraints);
 
         jLabel23.setText("/kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 4, 0, 0);
+        PricesPanel.add(jLabel23, gridBagConstraints);
 
         jLabel24.setText("Night:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        PricesPanel.add(jLabel24, gridBagConstraints);
 
         morningPrice1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        PricesPanel.add(morningPrice1, gridBagConstraints);
 
         nightPrice1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        PricesPanel.add(nightPrice1, gridBagConstraints);
 
         jLabel25.setText("/kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 4, 0, 0);
+        PricesPanel.add(jLabel25, gridBagConstraints);
 
         jLabel26.setText("/kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 4, 0, 0);
+        PricesPanel.add(jLabel26, gridBagConstraints);
 
         jLabel27.setText("Morning:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        PricesPanel.add(jLabel27, gridBagConstraints);
 
         dayPrice1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        PricesPanel.add(dayPrice1, gridBagConstraints);
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel28.setText("Composite index:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        PricesPanel.add(jLabel28, gridBagConstraints);
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel29.setText("List of prices");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 30, 0);
+        PricesPanel.add(jLabel29, gridBagConstraints);
 
         periodName1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         periodName1.setText("Period 1");
@@ -517,17 +613,54 @@ public class MainFrame extends javax.swing.JFrame {
                 periodName1ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 40);
+        PricesPanel.add(periodName1, gridBagConstraints);
 
         dayPrice2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        PricesPanel.add(dayPrice2, gridBagConstraints);
 
         simplePrice2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.ipadx = 69;
+        PricesPanel.add(simplePrice2, gridBagConstraints);
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel30.setText("Composite index:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        PricesPanel.add(jLabel30, gridBagConstraints);
 
         jLabel31.setText("Day:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        PricesPanel.add(jLabel31, gridBagConstraints);
 
         jLabel32.setText("/kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 4, 0, 0);
+        PricesPanel.add(jLabel32, gridBagConstraints);
 
         periodName2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         periodName2.setText("Period 2");
@@ -536,293 +669,164 @@ public class MainFrame extends javax.swing.JFrame {
                 periodName2ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 40);
+        PricesPanel.add(periodName2, gridBagConstraints);
 
         jLabel33.setText("Night:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        PricesPanel.add(jLabel33, gridBagConstraints);
 
         jLabel34.setText("From:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        PricesPanel.add(jLabel34, gridBagConstraints);
 
         morningPrice2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-
-        jLabel35.setText("-");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        PricesPanel.add(morningPrice2, gridBagConstraints);
 
         nightPrice2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        PricesPanel.add(nightPrice2, gridBagConstraints);
 
         jLabel36.setText("To:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        PricesPanel.add(jLabel36, gridBagConstraints);
 
         jLabel37.setText("/kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 4, 0, 0);
+        PricesPanel.add(jLabel37, gridBagConstraints);
 
         jLabel38.setText("/kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 4, 0, 0);
+        PricesPanel.add(jLabel38, gridBagConstraints);
 
         jLabel39.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel39.setText("Simple index:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        PricesPanel.add(jLabel39, gridBagConstraints);
 
         jLabel40.setText("Morning:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        PricesPanel.add(jLabel40, gridBagConstraints);
 
         jLabel41.setText("/kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 4, 0, 0);
+        PricesPanel.add(jLabel41, gridBagConstraints);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("Save changes");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        PricesPanel.add(jButton2, gridBagConstraints);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton4.setText("Cancel changes");
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout PricesPanelLayout = new javax.swing.GroupLayout(PricesPanel);
-        PricesPanel.setLayout(PricesPanelLayout);
-        PricesPanelLayout.setHorizontalGroup(
-            PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PricesPanelLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                            .addGap(13, 13, 13)
-                            .addComponent(jLabel33)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(nightPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(5, 5, 5)
-                            .addComponent(jLabel37))
-                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel40)
-                            .addGap(5, 5, 5)
-                            .addComponent(morningPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel38))
-                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(jLabel31)
-                            .addGap(5, 5, 5)
-                            .addComponent(dayPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel32)))
-                    .addGroup(PricesPanelLayout.createSequentialGroup()
-                        .addComponent(simplePrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel41))
-                    .addGroup(PricesPanelLayout.createSequentialGroup()
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel20)
-                            .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(PricesPanelLayout.createSequentialGroup()
-                                    .addGap(433, 433, 433)
-                                    .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel39)
-                                        .addComponent(jLabel30)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PricesPanelLayout.createSequentialGroup()
-                                    .addComponent(periodName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                                            .addGap(102, 102, 102)
-                                            .addComponent(jLabel34))
-                                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                                            .addGap(84, 84, 84)
-                                            .addComponent(startDate2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(8, 8, 8)
-                                    .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                                            .addGap(28, 28, 28)
-                                            .addComponent(jLabel36))
-                                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                                            .addGap(2, 2, 2)
-                                            .addComponent(jLabel35)
-                                            .addGap(12, 12, 12)
-                                            .addComponent(endDate2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel22)
-                        .addGap(5, 5, 5)
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addComponent(simplePrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel21))
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addComponent(dayPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel23))))
-                    .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                            .addGap(13, 13, 13)
-                            .addComponent(jLabel24)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(nightPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(5, 5, 5)
-                            .addComponent(jLabel25))
-                        .addGroup(PricesPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel27)
-                            .addGap(5, 5, 5)
-                            .addComponent(morningPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel26))))
-                .addGap(158, 158, 158))
-            .addGroup(PricesPanelLayout.createSequentialGroup()
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PricesPanelLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(periodName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(jLabel17))
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addComponent(startDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(8, 8, 8)
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel19))
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel18)
-                                .addGap(12, 12, 12)
-                                .addComponent(endDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(PricesPanelLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel29))
-                    .addGroup(PricesPanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PricesPanelLayout.setVerticalGroup(
-            PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PricesPanelLayout.createSequentialGroup()
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PricesPanelLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(simplePrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21))
-                        .addGap(38, 38, 38))
-                    .addGroup(PricesPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel29)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(periodName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(startDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(endDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))))
-                        .addGap(35, 35, 35)))
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PricesPanelLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel28)))
-                    .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel23)
-                        .addComponent(dayPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(nightPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addGap(11, 11, 11)
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel27)
-                    .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel26)
-                        .addComponent(morningPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PricesPanelLayout.createSequentialGroup()
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(simplePrice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel41))
-                        .addGap(40, 40, 40)
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel31))
-                            .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel32)
-                                .addComponent(dayPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PricesPanelLayout.createSequentialGroup()
-                        .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PricesPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel34)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(startDate2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(PricesPanelLayout.createSequentialGroup()
-                                    .addGap(11, 11, 11)
-                                    .addComponent(periodName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(6, 6, 6)))
-                            .addGroup(PricesPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel36)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(endDate2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel35)
-                                    .addComponent(jLabel39))))
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel30)))
-                .addGap(11, 11, 11)
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37)
-                    .addComponent(nightPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33))
-                .addGap(11, 11, 11)
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel40)
-                    .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel38)
-                        .addComponent(morningPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(3, 3, 3)
-                .addGroup(PricesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(143, 143, 143))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        PricesPanel.add(jButton4, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        PricesPanel.add(startDate1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
+        PricesPanel.add(endDate1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        PricesPanel.add(startDate2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
+        PricesPanel.add(endDate2, gridBagConstraints);
 
         ContentPanel.add(PricesPanel, "card4");
 
         AddIndexPanel.setBackground(new java.awt.Color(204, 204, 255));
-        AddIndexPanel.setPreferredSize(new java.awt.Dimension(894, 500));
+        AddIndexPanel.setPreferredSize(new java.awt.Dimension(1028, 654));
+        AddIndexPanel.setLayout(new java.awt.GridBagLayout());
 
-        buttonGroup1.add(simpleIndexRadio);
-        simpleIndexRadio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        simpleIndexRadio.setText("Simple index:");
-        simpleIndexRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simpleIndexRadioActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(compositeIndexRadio);
-        compositeIndexRadio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        compositeIndexRadio.setText("Composite index:");
-        compositeIndexRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compositeIndexRadioActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Enter client ID:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 150, 0, 0);
+        jPanel1.add(jLabel7, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 112;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 25, 0, 0);
+        jPanel1.add(enterClientIdField, gridBagConstraints);
 
         okSelectClientButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         okSelectClientButton.setText("Ok");
@@ -832,6 +836,15 @@ public class MainFrame extends javax.swing.JFrame {
                 okSelectClientButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 25, 0, 0);
+        jPanel1.add(okSelectClientButton, gridBagConstraints);
 
         indexesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -849,33 +862,219 @@ public class MainFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        indexesTable.setMaximumSize(new java.awt.Dimension(2147483647, 1000));
+        indexesTable.setMinimumSize(new java.awt.Dimension(105, 150));
+        indexesTable.setPreferredSize(new java.awt.Dimension(470, 150));
         jScrollPane2.setViewportView(indexesTable);
         if (indexesTable.getColumnModel().getColumnCount() > 0) {
             indexesTable.getColumnModel().getColumn(0).setPreferredWidth(20);
         }
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("For:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 918;
+        gridBagConstraints.ipady = 144;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 30, 30, 30);
+        jPanel1.add(jScrollPane2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        AddIndexPanel.add(jPanel1, gridBagConstraints);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1200, 300));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Handover date:");
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 30);
+        jPanel3.add(jLabel9, gridBagConstraints);
+
+        try {
+            handoverDateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 75;
+        gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 30);
+        jPanel3.add(handoverDateField, gridBagConstraints);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setText("For:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 30, 0, 30);
+        jPanel3.add(jLabel8, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        jPanel3.add(forMonthField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipady = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        jPanel3.add(forYearField, gridBagConstraints);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Index type:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 30, 0, 30);
+        jPanel3.add(jLabel10, gridBagConstraints);
+
+        buttonGroup1.add(simpleIndexRadio);
+        simpleIndexRadio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        simpleIndexRadio.setText("Simple index:");
+        simpleIndexRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpleIndexRadioActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        jPanel3.add(simpleIndexRadio, gridBagConstraints);
+
+        simpleIndexField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        simpleIndexField.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        jPanel3.add(simpleIndexField, gridBagConstraints);
 
         jLabel1.setText("kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 4, 0, 0);
+        jPanel3.add(jLabel1, gridBagConstraints);
+
+        buttonGroup1.add(compositeIndexRadio);
+        compositeIndexRadio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        compositeIndexRadio.setText("Composite index:");
+        compositeIndexRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compositeIndexRadioActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(8, 0, 0, 0);
+        jPanel3.add(compositeIndexRadio, gridBagConstraints);
 
         jLabel11.setText("Day:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 17, 0, 0);
+        jPanel3.add(jLabel11, gridBagConstraints);
+
+        dayIndexField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        dayIndexField.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 0, 0);
+        jPanel3.add(dayIndexField, gridBagConstraints);
 
         jLabel12.setText("kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 4, 0, 0);
+        jPanel3.add(jLabel12, gridBagConstraints);
 
         jLabel13.setText("Night:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 17, 0, 0);
+        jPanel3.add(jLabel13, gridBagConstraints);
+
+        nightIndexField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        nightIndexField.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 4, 0, 0);
+        jPanel3.add(nightIndexField, gridBagConstraints);
 
         jLabel14.setText("kWh");
-
-        jLabel15.setText("kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 4, 0, 0);
+        jPanel3.add(jLabel14, gridBagConstraints);
 
         jLabel16.setText("Morning:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 17, 0, 0);
+        jPanel3.add(jLabel16, gridBagConstraints);
+
+        morningIndexField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        morningIndexField.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 5, 0, 0);
+        jPanel3.add(morningIndexField, gridBagConstraints);
+
+        jLabel15.setText("kWh");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 4, 0, 0);
+        jPanel3.add(jLabel15, gridBagConstraints);
 
         indexSaveButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         indexSaveButton.setText("Save data");
@@ -885,162 +1084,47 @@ public class MainFrame extends javax.swing.JFrame {
                 indexSaveButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        jPanel3.add(indexSaveButton, gridBagConstraints);
 
-        dayIndexField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        dayIndexField.setEnabled(false);
-
-        simpleIndexField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        simpleIndexField.setEnabled(false);
-
-        morningIndexField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        morningIndexField.setEnabled(false);
-
-        nightIndexField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        nightIndexField.setEnabled(false);
-
-        try {
-            handoverDateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        javax.swing.GroupLayout AddIndexPanelLayout = new javax.swing.GroupLayout(AddIndexPanel);
-        AddIndexPanel.setLayout(AddIndexPanelLayout);
-        AddIndexPanelLayout.setHorizontalGroup(
-            AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel7)
-                        .addGap(10, 10, 10)
-                        .addComponent(enterClientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(okSelectClientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jLabel10)
-                        .addGap(39, 39, 39)
-                        .addComponent(simpleIndexRadio)
-                        .addGap(31, 31, 31)
-                        .addComponent(simpleIndexField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                                .addGap(162, 162, 162)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nightIndexField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel14))
-                            .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(jLabel16)
-                                .addGap(5, 5, 5)
-                                .addComponent(morningIndexField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel15))
-                            .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                                .addComponent(compositeIndexRadio)
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel11)
-                                .addGap(5, 5, 5)
-                                .addComponent(dayIndexField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12))
-                            .addComponent(indexSaveButton)))
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                                .addGap(197, 197, 197)
-                                .addComponent(jLabel8)
-                                .addGap(39, 39, 39))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddIndexPanelLayout.createSequentialGroup()
-                                .addGap(126, 126, 126)
-                                .addComponent(jLabel9)
-                                .addGap(35, 35, 35)))
-                        .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(forMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(handoverDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(forYearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        AddIndexPanelLayout.setVerticalGroup(
-            AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddIndexPanelLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel7))
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(enterClientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(okSelectClientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(handoverDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(forYearField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel8))
-                    .addComponent(forMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(simpleIndexRadio)
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel1)
-                                .addComponent(simpleIndexField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(8, 8, 8)
-                .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(compositeIndexRadio)
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel11))
-                    .addGroup(AddIndexPanelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(dayIndexField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
-                .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(nightIndexField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(11, 11, 11)
-                .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addGroup(AddIndexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15)
-                        .addComponent(morningIndexField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(indexSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        AddIndexPanel.add(jPanel3, gridBagConstraints);
 
         ContentPanel.add(AddIndexPanel, "card3");
 
-        BillPanel.setBackground(new java.awt.Color(204, 255, 255));
+        BillPanel.setBackground(new java.awt.Color(255, 255, 204));
+        BillPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel42.setText("Enter client ID:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(104, 128, 0, 0);
+        BillPanel.add(jLabel42, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 112;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(100, 10, 0, 0);
+        BillPanel.add(invoiceClientIdField, gridBagConstraints);
 
         invoiceButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         invoiceButton.setText("Invoice");
@@ -1050,52 +1134,40 @@ public class MainFrame extends javax.swing.JFrame {
                 invoiceButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.ipadx = 109;
+        gridBagConstraints.ipady = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(54, 193, 238, 538);
+        BillPanel.add(invoiceButton, gridBagConstraints);
 
         jLabel43.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel43.setText("For:");
-
-        javax.swing.GroupLayout BillPanelLayout = new javax.swing.GroupLayout(BillPanel);
-        BillPanel.setLayout(BillPanelLayout);
-        BillPanelLayout.setHorizontalGroup(
-            BillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillPanelLayout.createSequentialGroup()
-                .addGroup(BillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BillPanelLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(jLabel42)
-                        .addGap(10, 10, 10)
-                        .addComponent(invoiceClientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BillPanelLayout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addGroup(BillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(invoiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(BillPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel43)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(invoiceForMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(invoiceForYearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(538, Short.MAX_VALUE))
-        );
-        BillPanelLayout.setVerticalGroup(
-            BillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(BillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BillPanelLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel42))
-                    .addComponent(invoiceClientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(BillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(invoiceForYearField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(invoiceForMonthField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel43))
-                .addGap(54, 54, 54)
-                .addComponent(invoiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 193, 0, 0);
+        BillPanel.add(jLabel43, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 9, 0, 0);
+        BillPanel.add(invoiceForMonthField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 6, 0, 538);
+        BillPanel.add(invoiceForYearField, gridBagConstraints);
 
         ContentPanel.add(BillPanel, "card2");
 
@@ -1192,13 +1264,14 @@ public class MainFrame extends javax.swing.JFrame {
     private ArrayList<Index> getIndexesList(int id) {
         ArrayList<Index> indexesList = new ArrayList<>();
         
-        String query = "SELECT * FROM idx WHERE id_client = ? ORDER BY for_month;";
+        String query = "SELECT *, date_format(for_month,'%Y-%m-%d') as for_m FROM idx WHERE id_client = ? ORDER BY date DESC;";
         try(PreparedStatement st = DBConnection.prepareStatement(query);) {
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             Index index;
             while(rs.next()) {
-                index = new Index(rs.getInt("id_index"), rs.getInt("id_client"), rs.getDate("date"), rs.getDate("for_month"), rs.getInt("index_type"), rs.getDouble("day_index"), rs.getDouble("night_index"), rs.getDouble("morning_index"));
+                index = new Index(rs.getInt("id_index"), rs.getInt("id_client"), rs.getDate("date"), rs.getDate("for_m"), rs.getInt("index_type"), rs.getDouble("day_index"), rs.getDouble("night_index"), rs.getDouble("morning_index"));
+                System.out.println(index.getFor_month() + " " + rs.getDate("for_m"));
                 indexesList.add(index);
             }         
         }
@@ -1232,7 +1305,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
-    public Connection getConnection() {
+    private Connection getConnection() {
         Connection con;
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/facturare_contoare?useSSL=false", "root", "root");
@@ -1351,7 +1424,7 @@ public class MainFrame extends javax.swing.JFrame {
         int row = clientsTable.getSelectedRow();
         int id = (int)modelC.getValueAt(row, 0);
         
-        String query = "UPDATE client SET first_name = ?, last_name = ? address = ?, phone_number = ? WHERE id_client = ? ";
+        String query = "UPDATE client SET first_name = ?, last_name = ?, address = ?, phone_number = ? WHERE id_client = ? ";
         
         try(PreparedStatement st = DBConnection.prepareStatement(query);) {
             st.setString(1, fname);
@@ -1406,6 +1479,11 @@ public class MainFrame extends javax.swing.JFrame {
         int id = (int)modelC.getValueAt(row, 0);
         enterClientIdField.setText(((Integer)id).toString());
         
+        int rowCount = modelI.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            modelI.removeRow(i);
+}
     }//GEN-LAST:event_addIndexForClientButtonActionPerformed
 
     private void okSelectClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okSelectClientButtonActionPerformed
@@ -1422,7 +1500,7 @@ public class MainFrame extends javax.swing.JFrame {
         morningIndexField.setEnabled(true);       
     }//GEN-LAST:event_compositeIndexRadioActionPerformed
 
-    private String getMonthFormat(String m) {
+    private String getMonthFormat(String m) {       
         if(m.length() == 1) 
             return "0" +  m; // months are indexed from 0 in the month picker
         return m;
@@ -1437,7 +1515,7 @@ public class MainFrame extends javax.swing.JFrame {
         else { // add the new index in the database
             int id = Integer.parseInt(enterClientIdField.getText());
             String dt = handoverDateField.getText();
-            String for_m_y = getMonthFormat(((Integer)forMonthField.getMonth()).toString()) + "-" + ((Integer)forYearField.getYear()).toString();
+            String for_m_y = "01-" + getMonthFormat(((Integer)(forMonthField.getMonth()+1)).toString()) + "-" + ((Integer)forYearField.getYear()).toString();
             int index_type;
             double dayIndex;
             double nightIndex;
@@ -1455,7 +1533,7 @@ public class MainFrame extends javax.swing.JFrame {
                 morningIndex = ((Number)morningIndexField.getValue()).doubleValue();
             }
 
-            String query = "INSERT INTO idx (id_client, date, for_month, index_type, day_index, night_index, morning_index) VALUES (?, STR_TO_DATE(?, '%d-%m-%Y'), STR_TO_DATE(?, '%m-%Y'), ?, ?, ?, ?);";
+            String query = "INSERT INTO idx (id_client, date, for_month, index_type, day_index, night_index, morning_index) VALUES (?, STR_TO_DATE(?, '%d-%m-%Y'), STR_TO_DATE(?, '%d-%m-%Y'), ?, ?, ?, ?);";
             
             try(PreparedStatement st = DBConnection.prepareStatement(query);) {
                 st.setInt(1, id);
@@ -1482,72 +1560,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_indexSaveButtonActionPerformed
-
-    private void periodName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_periodName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_periodName1ActionPerformed
-
-    private void periodName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_periodName2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_periodName2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // we load the original unmodified data from the DB
-        loadPrices();
-    }//GEN-LAST:event_jButton4ActionPerformed
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // we save the new prices in the database
-        int ok = 0;
-        
-        String query1 = "UPDATE prices SET period_name = ?, start_date = ?, end_date = ?," + 
-                " simple_price = ?, day_price = ?, night_price = ?, morning_price = ? WHERE id_price = 1";
-       
-        try(PreparedStatement st = DBConnection.prepareStatement(query1);) {
-            st.setString(1, periodName1.getText());
-            st.setInt(2, startDate1.getMonth());
-            st.setInt(3, endDate1.getMonth());
-            st.setDouble(4, (Double)(simplePrice1.getValue()));
-            st.setDouble(5, (Double)(dayPrice1.getValue()));
-            st.setDouble(6, (Double)(nightPrice1.getValue()));
-            st.setDouble(7, (Double)(morningPrice1.getValue()));
-            
-            if((st.executeUpdate()) == 1) {
-                ok++;
-            }                          
-        }
-        catch(Exception e) {
-            System.out.println("error at updating prices");
-            e.printStackTrace();
-        }
-        
-        String query2 = "UPDATE prices SET period_name = ?, start_date = ?, end_date = ?," + 
-                " simple_price = ?, day_price = ?, night_price = ?, morning_price = ? WHERE id_price = 2";
-        
-        try(PreparedStatement st = DBConnection.prepareStatement(query2);) {
-            st.setString(1, periodName2.getText());
-            st.setInt(2, startDate2.getMonth());
-            st.setInt(3, endDate2.getMonth());
-            st.setDouble(4, (Double)(simplePrice2.getValue()));
-            st.setDouble(5, (Double)(dayPrice2.getValue()));
-            st.setDouble(6, (Double)(nightPrice2.getValue()));
-            st.setDouble(7, (Double)(morningPrice2.getValue()));
-            
-            if((st.executeUpdate()) == 1) {
-                ok++;
-            }                          
-        }
-        catch(Exception e) {
-            System.out.println("error at updating prices");
-            e.printStackTrace();
-        }
-        
-        if(ok == 2) // both updates were successfull
-            JOptionPane.showMessageDialog(null, "Price updated successfully"); 
-        else
-            JOptionPane.showMessageDialog(null, "Prices not updated");
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     // verifies if input is an existing id in the clients table
     // returns id if succes, -1 if failure
     private int verifyValidId(String inp) {
@@ -1578,7 +1591,7 @@ public class MainFrame extends javax.swing.JFrame {
     // verifies if there already is an invoice for the clied with id id_c for month for_m_y
     // if so, returns invoice id, else -1
     private int existsInvoiceInDb(int id_c, String for_m_y) {
-        String query = "SELECT * FROM invoice WHERE id_client = ? and STR_TO_DATE(?, '%m-%Y') = for_month;";
+        String query = "SELECT * FROM invoice WHERE id_client = ? and STR_TO_DATE(?, '%d-%m-%Y') = for_month;";
         try(PreparedStatement st = DBConnection.prepareStatement(query);) {
             st.setInt(1, id_c);
             st.setString(2, for_m_y);
@@ -1599,13 +1612,13 @@ public class MainFrame extends javax.swing.JFrame {
         Invoice inv = null;
         
         // we will also need last index for the previous month
-        String for_m_y = getMonthFormat(((Integer)(m + 1)).toString()) + "-" + ((Integer)y).toString();
+        String for_m_y = "01-" + getMonthFormat(((Integer)(m + 1)).toString()) + "-" + ((Integer)y).toString();
         if(m == 1) {
             m = 12;
             y--;
         }
         else m--;
-        String prevfor_m_y = getMonthFormat(((Integer)(m + 1)).toString()) + "-" + ((Integer)y).toString();
+        String prevfor_m_y = "01-" + getMonthFormat(((Integer)(m + 1)).toString()) + "-" + ((Integer)y).toString();
         
         Index idx = getLastIndexForMonth(for_m_y, id);
         Index previdx = getLastIndexForMonth(prevfor_m_y, id);
@@ -1615,7 +1628,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(idx == null) {
             JOptionPane.showMessageDialog(null, "No existing Index for selected month.");
             return null;
-        }
+        }System.out.println("~" + previdx.getId() + " " + idx.getId());
         double val, pDay, pNight = 0, pMorning = 0;
         System.out.println("idx: " + idx.getDay_index() + "  prev: " + previdx.getDay_index());
         
@@ -1654,7 +1667,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(existsInvoiceInDb(id, for_m_y) == -1) {
             // add invoice to the DB
             String query = "INSERT INTO invoice(id_client, value, date, for_month, day_cons, night_cons, morning_cons)" + 
-                    "VALUES(?, ?, STR_TO_DATE(CURDATE(), '%Y-%m-%d'), STR_TO_DATE(?, '%m-%Y'), ?, ?, ?)" ;        
+                    "VALUES(?, ?, STR_TO_DATE(CURDATE(), '%Y-%m-%d'), STR_TO_DATE(?, '%d-%m-%Y'), ?, ?, ?)" ;        
             try(PreparedStatement st = DBConnection.prepareStatement(query);) {
                 st.setInt(1, id);
                 st.setDouble(2, val);
@@ -1676,8 +1689,9 @@ public class MainFrame extends javax.swing.JFrame {
         }        
         
         // create coresponding Invoice object 
-        String query = "SELECT i.*, c.* FROM invoice i JOIN client c ON (c.id_client = i.id_client);";
+        String query = "SELECT i.*, c.* FROM invoice i JOIN client c ON (c.id_client = i.id_client) WHERE i.id_client = ?;";
         try(PreparedStatement st = DBConnection.prepareStatement(query);) {
+            st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             Index index;
             if(rs.next()) {
@@ -1707,7 +1721,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         System.out.println("invoice val " + inv.getValue());
         
-        String FILE = "Invoice_" + (m+1) + "_" + y + ".pdf";
+        String FILE = "Invoice_client" + id + "_for_" + (m+1) + "-" + y + ".pdf";
         XWPFDocument doc = new XWPFDocument();
         
         XWPFParagraph para = doc.createParagraph();
@@ -1752,7 +1766,7 @@ public class MainFrame extends javax.swing.JFrame {
     // we suppose we have indexes for all months and if we don't it means we are about to add the first one
     private Index getLastIndexForMonth(String for_m_y, int id) {
         System.out.println("getting index for " + for_m_y);
-        String query = "SELECT *, max(date) maxi FROM idx where for_month = str_to_date(?, '%m-%Y') and id_client = ?;";
+        String query = "SELECT *, max(date) maxi FROM idx where for_month = str_to_date(?, '%d-%m-%Y') and id_client = ?;";
         Index index = null;
         
         try(PreparedStatement st = DBConnection.prepareStatement(query);) {
@@ -1792,6 +1806,71 @@ public class MainFrame extends javax.swing.JFrame {
             createInvoice(id, for_month, for_year);
                 
     }//GEN-LAST:event_invoiceButtonActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // we load the original unmodified data from the DB
+        loadPrices();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // we save the new prices in the database
+        int ok = 0;
+
+        String query1 = "UPDATE prices SET period_name = ?, start_date = ?, end_date = ?," +
+        " simple_price = ?, day_price = ?, night_price = ?, morning_price = ? WHERE id_price = 1";
+
+        try(PreparedStatement st = DBConnection.prepareStatement(query1);) {
+            st.setString(1, periodName1.getText());
+            st.setInt(2, startDate1.getMonth());
+            st.setInt(3, endDate1.getMonth());
+            st.setDouble(4, (Double)(simplePrice1.getValue()));
+            st.setDouble(5, (Double)(dayPrice1.getValue()));
+            st.setDouble(6, (Double)(nightPrice1.getValue()));
+            st.setDouble(7, (Double)(morningPrice1.getValue()));
+
+            if((st.executeUpdate()) == 1) {
+                ok++;
+            }
+        }
+        catch(Exception e) {
+            System.out.println("error at updating prices");
+            e.printStackTrace();
+        }
+
+        String query2 = "UPDATE prices SET period_name = ?, start_date = ?, end_date = ?," +
+        " simple_price = ?, day_price = ?, night_price = ?, morning_price = ? WHERE id_price = 2";
+
+        try(PreparedStatement st = DBConnection.prepareStatement(query2);) {
+            st.setString(1, periodName2.getText());
+            st.setInt(2, startDate2.getMonth());
+            st.setInt(3, endDate2.getMonth());
+            st.setDouble(4, (Double)(simplePrice2.getValue()));
+            st.setDouble(5, (Double)(dayPrice2.getValue()));
+            st.setDouble(6, (Double)(nightPrice2.getValue()));
+            st.setDouble(7, (Double)(morningPrice2.getValue()));
+
+            if((st.executeUpdate()) == 1) {
+                ok++;
+            }
+        }
+        catch(Exception e) {
+            System.out.println("error at updating prices");
+            e.printStackTrace();
+        }
+
+        if(ok == 2) // both updates were successfull
+        JOptionPane.showMessageDialog(null, "Price updated successfully");
+        else
+        JOptionPane.showMessageDialog(null, "Prices not updated");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void periodName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_periodName2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_periodName2ActionPerformed
+
+    private void periodName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_periodName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_periodName1ActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1872,7 +1951,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1891,7 +1969,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -1907,6 +1984,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField lastNameTextField;
